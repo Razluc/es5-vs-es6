@@ -61,3 +61,51 @@ ages6 = years.map((el, index) => {
 console.log(ages6);
 */
 
+////////////////////////////////
+// Lecture:  Arrow functions 2
+
+// ES5
+var box5 = {
+    color: 'green',
+    position: 1,
+    clickMe: function(){
+        // 2. "THIS" will work only here for box5 object.
+        // console.log(this.position);
+        // a solution is to create a variable with value of "this".
+        var that = this;
+        document.querySelector('.green').addEventListener('click', function(){
+            // 1.This is a regular function, and THIS points to the global object.
+            var str = 'This is box number '+that.position+' and it is '+that.color;
+            console.log(str);
+        })
+    }
+}
+// box5.clickMe();
+
+// ES6
+const box6 = {
+    color: 'green',
+    position: 1,
+    clickMe: function(){
+        document.querySelector('.green').addEventListener('click', () => {
+            // 1. With arrow function I have access to box6 values with "this".
+            var str = 'This is box number '+this.position+' and it is '+this.color;
+            console.log(str);
+        })
+    }
+}
+box6.clickMe();
+// Very important. If I use on clickMe arrow function, all the values from "this" in querySelector will be undefined. Because 
+// const box66 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: () => {
+//         // "this" will point on global object, window. 
+//         document.querySelector('.green').addEventListener('click', () => {
+//             // 1. With arrow function I have access to box6 values with "this".
+//             var str = 'This is box number '+this.position+' and it is '+this.color;
+//             console.log(str);
+//         })
+//     }
+// }
+// box66.clickMe();
