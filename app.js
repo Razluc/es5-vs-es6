@@ -216,7 +216,7 @@ console.log(ages.find(cur => cur >= 18));
 */
 ////////////////////////////////
 // Lecture:  Spread operator
-
+/*
 function addFourAges(a,b,c,d){
     return a + b + c + d;
 }
@@ -243,3 +243,23 @@ const boxes = document.querySelectorAll('.box');
 const all = [h, ...boxes];
 
 Array.from(all).forEach(cur => cur.style.color = 'purple');
+*/
+////////////////////////////////
+// Lecture:  Rest parameters
+
+// ES5
+function isFullAge5(limit){
+    var args = Array.prototype.slice.call(arguments, 1);
+    args.forEach(function(cur) {
+        console.log((2019-cur) >= limit);
+    })
+    
+}
+
+// isFullAge5(1990,2003,1965);
+
+// ES6
+function isFullAge6(limit, ...years){
+    years.forEach(cur => console.log((2019 - cur) >= limit));
+}
+isFullAge6(20, 1990,1920,2000);
