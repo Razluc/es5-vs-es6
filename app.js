@@ -111,7 +111,7 @@ box6.clickMe();
 // box66.clickMe();
 
 */
-
+/*
 function Person(name){
     this.name = name;
 }
@@ -134,3 +134,29 @@ Person.prototype.myFriends6 = function(friends){
 
 
 new Person('ion').myFriends6(friends);
+*/
+
+////////////////////////////////
+// Lecture:  Destructuring
+
+// ES5
+var ion = ['ion', 33];
+// var name = ion[0];
+// var age = ion[1];
+
+// ES6
+const [name, age] = ['dan', 20];
+console.log(name);
+console.log(age);
+
+const obj = {
+    firstName: 'ion',
+    lastName: 'bob'
+}
+const {firstName, lastName} = obj;
+console.log(firstName);
+console.log(lastName);
+
+const {firstName: a, lastName: b} = obj;
+console.log(a);
+console.log(b);
