@@ -63,7 +63,7 @@ console.log(ages6);
 
 ////////////////////////////////
 // Lecture:  Arrow functions 2
-/*
+
 // ES5
 var box5 = {
     color: 'green',
@@ -109,28 +109,3 @@ box6.clickMe();
 //     }
 // }
 // box66.clickMe();
-
-*/
-
-function Person(name){
-    this.name = name;
-}
-// ES5
-Person.prototype.myFriends5 = function(friends){
-    var arr = friends.map(function(el){
-        return this.name + ' is friend with ' + el;
-    }.bind(this)); // Without bind(this), this will point on global object. Another alternative is to create a var with "this" value outsite of this function in prototype like previous example. But with bind is much easy.
-    console.log(arr);
-}
-
-var friends = ['bob', 'jane', 'mark'];
-// new Person('ion').myFriends5(friends);
-
-// ES6
-Person.prototype.myFriends6 = function(friends){
-    var arr = friends.map(el => `${this.name} is friend with ${el}`);
-    console.log(arr);
-}
-
-
-new Person('ion').myFriends6(friends);
