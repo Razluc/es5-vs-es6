@@ -246,7 +246,7 @@ Array.from(all).forEach(cur => cur.style.color = 'purple');
 */
 ////////////////////////////////
 // Lecture:  Rest parameters
-/*
+
 // ES5
 function isFullAge5(limit){
     var args = Array.prototype.slice.call(arguments, 1);
@@ -263,29 +263,3 @@ function isFullAge6(limit, ...years){
     years.forEach(cur => console.log((2019 - cur) >= limit));
 }
 isFullAge6(20, 1990,1920,2000);
-
-*/
-////////////////////////////////
-// Lecture:  Default parameters
-
-// ES5
-// function SmithPerson(firstName, yearOfBirth, lastName, nationality){
-
-//     lastName === undefined ? lastName = 'Smith' : lastName;
-//     nationality === undefined ? nationality = 'Ro' : nationality;
-//     this.firstName = firstName;
-//     this.yearOfBirth = yearOfBirth;
-//     this.lastName = lastName;
-//     this.nationality = nationality;
-// }
-// var ion = new SmithPerson('Ion', 1994);
-// var ema = new SmithPerson('Emily', 1983, 'Diaz', 'hu');
-
-// ES6
-function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'ro'){
-    this.firstName = firstName;
-    this.yearOfBirth = yearOfBirth;
-    this.lastName = lastName;
-    this.nationality = nationality;
-}
-var ion = new SmithPerson('ion', 1990);
