@@ -140,23 +140,31 @@ new Person('ion').myFriends6(friends);
 // Lecture:  Destructuring
 
 // ES5
-var ion = ['ion', 33];
-// var name = ion[0];
-// var age = ion[1];
+// var ion = ['ion', 33];
+// // var name = ion[0];
+// // var age = ion[1];
 
-// ES6
-const [name, age] = ['dan', 20];
-console.log(name);
-console.log(age);
+// // ES6
+// const [name, age] = ['dan', 20];
+// console.log(name);
+// console.log(age);
 
-const obj = {
-    firstName: 'ion',
-    lastName: 'bob'
+// const obj = {
+//     firstName: 'ion',
+//     lastName: 'bob'
+// }
+// const {firstName, lastName} = obj;
+// console.log(firstName);
+// console.log(lastName);
+
+// const {firstName: a, lastName: b} = obj;
+// console.log(a);
+// console.log(b);
+
+function calcAge(year){
+    const age = new Date().getFullYear() - year;
+    return [age, 65- age];
 }
-const {firstName, lastName} = obj;
-console.log(firstName);
-console.log(lastName);
-
-const {firstName: a, lastName: b} = obj;
-console.log(a);
-console.log(b);
+const [age, retirement] = calcAge(1994);
+console.log(age);
+console.log(retirement);
