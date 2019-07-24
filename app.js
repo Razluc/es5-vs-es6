@@ -161,10 +161,53 @@ new Person('ion').myFriends6(friends);
 // console.log(a);
 // console.log(b);
 
-function calcAge(year){
-    const age = new Date().getFullYear() - year;
-    return [age, 65- age];
+// function calcAge(year){
+//     const age = new Date().getFullYear() - year;
+//     return [age, 65- age];
+// }
+// const [age, retirement] = calcAge(1994);
+// console.log(age);
+// console.log(retirement);
+
+////////////////////////////////
+// Lecture:  Arrays
+const boxes = document.querySelectorAll('.box');
+// ----- Foreach in array.
+// ES5
+// var boxerArr5 = Array.prototype.slice.call(boxes);
+// boxerArr5.forEach(function(cur){
+//     cur.style.backgroundColor = 'blue';
+// });
+
+// ES6
+const boxesArr6 = Array.from(boxes);
+boxesArr6.forEach(cur => cur.style.backgroundColor = 'blue');
+// ------ For in array
+// ES5
+// for(var i = 0; i<boxerArr5.length; i++){
+//     if(boxerArr5[i].className === 'box blue'){
+//         continue;
+//     }
+//     boxerArr5[i].textContent = 'I changed to blue!';
+// }
+
+// ES6
+for(const cur of boxesArr6){
+    if(cur.className.includes('blue')){
+        continue;
+    }
+    cur.textContent = 'I changed to blue!';
 }
-const [age, retirement] = calcAge(1994);
-console.log(age);
-console.log(retirement);
+// ES5
+var ages = [13, 17, 8, 21, 14, 11];
+
+var full = ages.map(function(cur){
+    return cur >= 18;
+})
+console.log(full);
+console.log(full.indexOf(true));
+console.log(ages[full.indexOf(true)]);
+
+// ES6
+console.log(ages.findIndex(cur => cur >= 18));
+console.log(ages.find(cur => cur >= 18));
